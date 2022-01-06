@@ -13,14 +13,23 @@ public class StockCalculationService {
     private int stock;
 
     public List<Order> getOrders() {
-        ObjectMapper mapper = new ObjectMapper();
-        try {
-            Order[] orders = mapper.readValue(new File("C:\\Users\\hasiniw\\Downloads\\stock\\stock\\src\\main\\java\\com\\example\\stock\\data.json"), Order[].class);
-            return Arrays.asList(orders);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return new ArrayList<>();
+        // ObjectMapper mapper = new ObjectMapper();
+        // try {
+        //     Order[] orders = mapper.readValue(new File("C:\\Users\\hasiniw\\Downloads\\stock\\stock\\src\\main\\java\\com\\example\\stock\\data.json"), Order[].class);
+        //     return Arrays.asList(orders);
+        // } catch (IOException e) {
+        //     e.printStackTrace();
+        // }
+        // return new ArrayList<>();
+        return new ArrayList<>() {{
+            add(new Order("1", 50, "unit"));
+            add(new Order("2", 40, "pack"));
+            add(new Order("3", 30, "unit"));
+            add(new Order("4", 10, "pack", true));
+            add(new Order("5", 100, "unit", true));
+            add(new Order("6", 62, "unit", true));
+            add(new Order("7", 12, "pack", true));
+        }};
     }
 
     public List<Order> getPriorityPackOrders(List<Order> orderLine) {
