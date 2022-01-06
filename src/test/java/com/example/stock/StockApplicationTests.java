@@ -27,7 +27,7 @@ class StockApplicationTests {
 
     @Test
     public void getOrdersTest() {
-        assertEquals(6, service.getOrders().size());
+        assertEquals(7, service.getOrders().size());
     }
 
     @Test
